@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var checkoutAmount = ""
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 2
+    @State private var userRedText = false
 
     
     let tipPercentages = [10, 15, 20, 25, 0]
@@ -35,6 +36,7 @@ struct ContentView: View {
                 Section {
                     TextField("Amount", text: $checkoutAmount)
                         .keyboardType(.decimalPad)
+                        .foregroundColor(tipPercentage == 4 ? .red : .black)
                     // Picker with style determined by Apple, no 'pickerStyle'
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2 ..< 100) {
